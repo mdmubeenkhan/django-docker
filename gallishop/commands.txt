@@ -1,2 +1,2 @@
-docker build --tag django-mongo .
-docker run --publish 8000:8000 django-mongo
+docker build --tag gallishop .
+docker run --publish 8000:8000 gallishop
