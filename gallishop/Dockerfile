@@ -1,9 +1,13 @@
-FROM ubuntu
+FROM ubuntu:jammy
 USER root
 ENV PYTHONUNBUFFERED=1
-RUN sudo apt-get update -y
-RUN sudo apt-get upgrade -y
-RUN sudo apt-get install python3.10 -y
+RUN apt-get update -y
+RUN apt-get install dialog apt-utils -y
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+RUN apt-get upgrade -y
+RUN apt-get install -y -q
+RUN apt-get install python3.9 -y
+RUN apt-get install python3-pip -y
 WORKDIR /gallishop
 COPY . .
 RUN pip3 install -r requirements.txt

@@ -1,2 +1,6 @@
-docker build --tag gallishop .
-docker run --publish 8000:8000 gallishop
+sudo docker build --tag mdmubeenkhan/gallishop:latest .
+sudo docker login -u mdmubeenkhan #--for password use the Access token generated from dockerhub
+sudo docker image push mdmubeenkhan/gallishop:latest
+
+
+sudo docker run --publish 8000:8000 gallishop
